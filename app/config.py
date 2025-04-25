@@ -1,8 +1,10 @@
 # Database configuration
+import os
+
 DB_CONFIG = {
-    "host": "db",
-    "port": 5432,
-    "user": "postgres_user",
-    "password": "postgres_password",
-    "dbname": "mnist_db"
+  "host":   os.environ["PGHOST"],
+  "port":   os.environ["PGPORT"],
+  "user":   os.environ["PGUSER"],
+  "password": os.environ["PGPASSWORD"],
+  "dbname": os.environ["PGDATABASE"],
 }
