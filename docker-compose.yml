@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "8501:8501"
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: postgres:17
+
+    environment:
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: mnist_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
